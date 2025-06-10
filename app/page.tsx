@@ -1,12 +1,32 @@
+// file: app/page.tsx  (دقت کن، این فایل داخل پوشه اپ هست)
+
+// مسیرهای وارد کردن فایل اصلاح شد
+import Header from '../components/Header'; 
+import BookCard from '../components/BookCard';
+import { books } from '../data/books';
+
 export default function HomePage() {
   return (
-    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1 style={{ color: '#0070f3', fontSize: '2.5rem' }}>
-        به پروژه BookVibe خوش آمدید!
-      </h1>
-      <p style={{ fontSize: '1.2rem' }}>
-        به زودی اینجا پر از کتاب‌های شگفت‌انگیز می‌شود.
-      </p>
-    </main>
+    <div className="bg-gray-900 text-white min-h-screen">
+      {/* کامپوننت هدر اینجا نیاز به ساخت دارد یا باید از کد حذف شود */}
+      {/* <Header /> */}
+
+      <main className="container mx-auto px-6 py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-extrabold">
+            Discover Your Next Great Read
+          </h2>
+          <p className="text-lg text-gray-400 mt-2">
+            Explore our hand-picked collection of best-selling digital books.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {books.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }
